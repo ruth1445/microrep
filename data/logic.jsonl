@@ -1,0 +1,3 @@
+{"input": "If Tom is older than Jim, and Jim is older than Ben, who is the oldest?", "target": "Tom"}
+{"input": "What is 15 divided by 3?", "target": "5"}
+{"input": "If a train leaves at 3pm and travels for 2 hours, what time does it arrive?", "target": "5pm"}
