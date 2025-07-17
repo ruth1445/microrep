@@ -62,9 +62,8 @@ if __name__ == "__main__":
             optimizer.zero_grad()
         print(f"Epoch {epoch+1}: Loss = {loss.item():.4f}")
 
-    torch.save(model.state_dict(), f"models/{args.domain}.pt")
-    import os
-    os.makedirs("models", exist_ok=True)
-    torch.save(model.state_dict(), f"models/{args.domain}.pt")
-    print(f"✅ Saved model to models/{args.domain}.pt")
+torch.save(model.state_dict(), f"models/{args.domain}.pt")
+os.makedirs("models", exist_ok=True)
+torch.save(model.state_dict(), f"models/{args.domain}.pt")
+print(f"✅ Saved model to models/{args.domain}.pt")
 
