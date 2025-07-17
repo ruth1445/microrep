@@ -9,13 +9,13 @@ import os
 # Load expert module based on domain
 def get_expert(domain):
     if domain == "language":
-        from expert_blocks.language_expert import ExpertBlock
+        from experts.language_expert import ExpertBlock
     elif domain == "logic":
-        from expert_blocks.logic_expert import ExpertBlock
+        from experts.logic_expert import ExpertBlock
     elif domain == "social":
-        from expert_blocks.social_expert import ExpertBlock
+        from experts.social_expert import ExpertBlock
     elif domain == "world":
-        from expert_blocks.world_expert import ExpertBlock
+        from experts.world_expert import ExpertBlock
     else:
         raise ValueError("Invalid domain name.")
     return ExpertBlock()
