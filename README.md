@@ -19,6 +19,6 @@ Routing:
 "suggested"      → Lang
 "otherwise"      → World
 
-
+Link to the paper: https://arxiv.org/abs/2506.13331
 
 
