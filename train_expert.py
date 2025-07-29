@@ -66,5 +66,5 @@ if __name__ == "__main__":
 torch.save(model.state_dict(), f"models/{args.domain}.pt")
 os.makedirs("models", exist_ok=True)
 torch.save(model.state_dict(), f"models/{args.domain}.pt")
-print(f"✅ Saved model to models/{args.domain}.pt")
+print(f"Saved model to models/{args.domain}.pt")
 
