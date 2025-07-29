@@ -17,7 +17,7 @@ def preprocess(example):
         "labels": tokenizer(tgt, padding="max_length", truncation=True, max_length=128, return_tensors="pt").input_ids.squeeze(0)
     }
 
-print("⏳ Loading dataset...")
+print("Loading dataset")
 ds = load_dataset("Muennighoff/flan", split="train[:500]")
 ds = ds.map(preprocess)
 
@@ -27,7 +27,7 @@ model = MiCRoTransformer()
 optimizer = torch.optim.AdamW(model.parameters(), lr=5e-5)
 loss_fn = nn.CrossEntropyLoss(ignore_index=tokenizer.pad_token_id)
 
-print("🚀 Starting finetuning...")
+print("Starting finetuning")
 for epoch in range(3):
     total_loss = 0
     for batch in loader:
@@ -45,5 +45,5 @@ for epoch in range(3):
     print(f"Epoch {epoch+1} — Loss: {total_loss:.4f}")
 
 torch.save(model.state_dict(), "models/micro_finetuned.pt")
-print("✅ Saved finetuned model!")
+print("Saved finetuned model!")
 
