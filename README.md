@@ -1,4 +1,4 @@
-Replica of Mixture of Cognitive Reasoners (MiCRo)
+Replica of Mixture of Cognitive Reasoners (MiCRo);
 
 This project is a clean-room replication of the *Mixture of Cognitive Reasoners (MiCRo)* paper by Sabbata et al. (2025), which proposed a novel architecture combining routing and modular reasoning inspired by human cognition.
 
@@ -11,7 +11,7 @@ Project Highlights:
 - Expert Ablation: Code structured to disable individual experts to study impact
 
 Sample:
-Prompt: Lily said she was fine after the test, but her tone suggested otherwise.
+Prompt: "Lily said she was fine after the test, but her tone suggested otherwise."
 Routing:
 
 "fine"           → Social
