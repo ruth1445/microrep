@@ -24,11 +24,18 @@
   .credit{max-width:820px;margin:10px auto 0;padding:14px 17px;border:1px solid var(--line);border-radius:11px;color:#55524c;background:rgba(255,255,255,.28);font-size:.78rem;display:flex;gap:12px;align-items:flex-start}
   .credit strong{color:var(--ink);font-weight:600}
   .credit a{text-decoration:underline;text-underline-offset:3px}
-  .about{max-width:760px;margin:46px auto 0;border-top:1px solid var(--line);padding-top:28px;display:grid;grid-template-columns:150px 1fr;gap:30px}
+  .about,.sample{max-width:820px;margin:46px auto 0;border-top:1px solid var(--line);padding-top:28px;display:grid;grid-template-columns:150px 1fr;gap:30px}
   .label{text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:var(--muted);padding-top:4px}
   .about p{margin:0;color:#3d3b36;font-size:.95rem}
+  .sample-copy{min-width:0}
+  .prompt{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.35;margin:0 0 24px;letter-spacing:-.015em}
+  .routes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
+  .route{border-top:1px solid var(--ink);padding-top:10px}
+  .token{font-weight:600;font-size:.95rem;margin-bottom:2px}
+  .expert{color:var(--muted);font-size:.78rem}
+  .sample-note{margin:20px 0 0;color:var(--muted);font-size:.78rem;max-width:620px}
   footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);font-size:.72rem;text-align:center}
-  @media(max-width:700px){.wrap{width:min(100% - 28px,1180px)}nav{height:auto;padding:20px 0;align-items:flex-start}.navlinks{gap:14px;flex-wrap:wrap;justify-content:flex-end}main{padding-top:42px}.figure-frame{padding:8px}.about{grid-template-columns:1fr;gap:8px}}
+  @media(max-width:700px){.wrap{width:min(100% - 28px,1180px)}nav{height:auto;padding:20px 0;align-items:flex-start}.navlinks{gap:14px;flex-wrap:wrap;justify-content:flex-end}main{padding-top:42px}.figure-frame{padding:8px}.about,.sample{grid-template-columns:1fr;gap:8px}.routes{grid-template-columns:1fr 1fr}.sample{margin-top:38px}}
 </style>
 </head>
 <body>
@@ -36,6 +43,7 @@
   <nav>
     <div class="brand">MiCRo</div>
     <div class="navlinks">
+      <a href="#sample">Sample</a>
       <a href="#about">About</a>
       <a href="https://arxiv.org/abs/2506.13331" target="_blank" rel="noopener">Paper ↗</a>
       <a class="repo" href="https://github.com/ruth1445/microrep" target="_blank" rel="noopener">GitHub ↗</a>
@@ -58,6 +66,21 @@
       <span>↳</span>
       <div><strong>Diagram credit:</strong> Figure 1, “Brain-Inspired Modular Language Model,” from AlKhamissi, De Sabbata, Tuckute, Chen, Schrimpf &amp; Bosselut, <em>Mixture of Cognitive Reasoners: Modular Reasoning with Brain-Like Specialization</em>, arXiv:2506.13331. <a href="https://arxiv.org/abs/2506.13331" target="_blank" rel="noopener">Original paper ↗</a></div>
     </div>
+
+    <section class="sample" id="sample">
+      <div class="label">My routing sample</div>
+      <div class="sample-copy">
+        <p class="prompt">“Lily said she was fine after the test, but her tone suggested otherwise.”</p>
+        <div class="routes" aria-label="Sample token-to-expert assignments from the replication README">
+          <div class="route"><div class="token">fine</div><div class="expert">→ Social</div></div>
+          <div class="route"><div class="token">test</div><div class="expert">→ Logic</div></div>
+          <div class="route"><div class="token">tone</div><div class="expert">→ Social</div></div>
+          <div class="route"><div class="token">suggested</div><div class="expert">→ Language</div></div>
+          <div class="route"><div class="token">otherwise</div><div class="expert">→ World</div></div>
+        </div>
+        <p class="sample-note">This is the token-routing example documented in my replication repository, showing how different parts of one sentence are assigned to specialized cognitive experts.</p>
+      </div>
+    </section>
 
     <section class="about" id="about">
       <div class="label">My replication</div>
