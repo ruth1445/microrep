@@ -5,111 +5,107 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiCRo · Mixture of Cognitive Reasoners</title>
 <style>
-  :root{--paper:#f7f4ed;--ink:#171717;--muted:#74716a;--line:#d9d5cd;--card:#fbfaf6;--language:#4776d9;--logic:#4d9a6a;--social:#b45aa7;--world:#d5a23c}
-  *{box-sizing:border-box}
-  body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
-  a{color:inherit;text-decoration:none}
-  .wrap{width:min(1180px,calc(100% - 48px));margin:0 auto}
-  nav{height:88px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);gap:24px}
-  .brand{font-family:Georgia,"Times New Roman",serif;font-size:1.45rem;letter-spacing:-.02em}
-  .navlinks{display:flex;gap:28px;align-items:center;font-size:.86rem}
-  .repo{border:1px solid var(--line);border-radius:9px;padding:10px 14px;background:rgba(255,255,255,.35)}
-  main{padding:54px 0 72px}
-  header{text-align:center;margin:0 auto 30px;max-width:780px}
-  h1{font-family:Georgia,"Times New Roman",serif;font-weight:400;font-size:clamp(2.25rem,5vw,4rem);letter-spacing:-.035em;line-height:1.05;margin:0 0 13px}
-  .sub{color:var(--muted);font-size:1rem;margin:0 auto;max-width:560px}
-  .figure-card{max-width:820px;margin:30px auto 14px;background:var(--card);border:1px solid var(--line);border-radius:13px;overflow:hidden;box-shadow:0 12px 30px rgba(0,0,0,.04)}
-  .figure-frame{width:100%;background:#fff;display:flex;align-items:center;justify-content:center;padding:20px}
-  .figure-frame img{display:block;width:100%;height:auto;object-fit:contain}
-  .credit{max-width:820px;margin:10px auto 0;padding:14px 17px;border:1px solid var(--line);border-radius:11px;color:#55524c;background:rgba(255,255,255,.28);font-size:.78rem;display:flex;gap:12px;align-items:flex-start}
-  .credit strong{color:var(--ink);font-weight:600}
-  .credit a{text-decoration:underline;text-underline-offset:3px}
-  .about,.sample{max-width:820px;margin:46px auto 0;border-top:1px solid var(--line);padding-top:28px;display:grid;grid-template-columns:150px 1fr;gap:30px}
-  .label{text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:var(--muted);padding-top:4px}
-  .about p{margin:0;color:#3d3b36;font-size:.95rem}
-  .sample-copy{min-width:0}
-  .example+.example{margin-top:34px;padding-top:30px;border-top:1px solid var(--line)}
-  .example-kicker{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
-  .prompt{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.55;margin:0 0 18px;letter-spacing:-.015em}
-  .word{display:inline-block;padding:0 .08em .04em;border-bottom:5px solid transparent;margin-right:.08em;transition:transform .15s ease}
-  .word:hover{transform:translateY(-2px)}
-  .language{border-color:var(--language)}
-  .logic{border-color:var(--logic)}
-  .social{border-color:var(--social)}
-  .world{border-color:var(--world)}
-  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:.73rem;color:var(--muted)}
-  .legend-item{display:flex;align-items:center;gap:6px}
-  .dot{width:9px;height:9px;border-radius:50%}
-  .dot.language{background:var(--language)}.dot.logic{background:var(--logic)}.dot.social{background:var(--social)}.dot.world{background:var(--world)}
-  .sample-note{margin:16px 0 0;color:var(--muted);font-size:.78rem;max-width:660px}
-  footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);font-size:.72rem;text-align:center}
-  @media(max-width:700px){.wrap{width:min(100% - 28px,1180px)}nav{height:auto;padding:20px 0;align-items:flex-start}.navlinks{gap:14px;flex-wrap:wrap;justify-content:flex-end}main{padding-top:42px}.figure-frame{padding:8px}.about,.sample{grid-template-columns:1fr;gap:8px}.sample{margin-top:38px}}
+:root{--bg:#fafafa;--ink:#111;--muted:#606060;--line:#e4e4e4;--card:#fff;--language:#8762d9;--logic:#f2c341;--social:#43a56f;--world:#ee8585}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}a{color:inherit;text-decoration:none}
+.shell{width:min(1180px,calc(100% - 56px));margin:0 auto}
+nav{height:92px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:30px}.brand b{font-size:1.85rem;display:block;line-height:1}.brand span{font-size:.76rem;color:var(--muted)}.navlinks{display:flex;align-items:center;gap:38px;font-size:.9rem}.navlinks a:first-child{position:relative}.navlinks a:first-child:after{content:"";position:absolute;left:30%;right:30%;bottom:-22px;height:2px;background:#254c42}.gh{font-size:1.28rem}
+main{padding:30px 0 56px}.hero{text-align:center;margin:0 auto 28px}.hero h1{font-size:clamp(2.2rem,4.8vw,3.95rem);letter-spacing:-.045em;line-height:1.03;margin:0 0 12px}.hero p{font-size:1rem;max-width:680px;margin:0 auto;color:#333}
+.paper-card{border:1px solid var(--line);border-radius:12px;background:var(--card);padding:20px 24px 22px;display:grid;grid-template-columns:1.7fr .7fr;gap:30px;align-items:center}.eyebrow{font:600 .7rem/1.2 ui-monospace,SFMono-Regular,Menlo,monospace;letter-spacing:.11em;color:#575757;margin-bottom:8px}.paper-card img{width:100%;display:block;max-height:430px;object-fit:contain}.credit{font-size:.82rem;color:#3d3d3d;line-height:1.65}.credit strong{display:block;color:#111;margin-bottom:4px}.credit em{display:block;margin-top:4px}
+.section-head{margin:24px 8px 10px}.section-head h2{font-size:.93rem;letter-spacing:.04em;text-transform:uppercase;margin:0 0 6px}.section-head p{font-size:.85rem;color:#4f4f4f;margin:0}
+.example{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px 20px 20px;margin-bottom:16px}.example-title{display:flex;align-items:center;gap:12px;font-weight:650;margin-bottom:18px}.num{width:24px;height:24px;border:1.5px solid #222;border-radius:50%;display:grid;place-items:center;font-size:.78rem}.sentence{font-size:1rem}
+.tokens{display:flex;flex-wrap:wrap;gap:16px 22px}.tok{min-width:58px;text-align:center}.chip{display:inline-block;padding:7px 12px;border-radius:6px;font-weight:600;font-size:.84rem}.chip.language{background:#ece5fb}.chip.logic{background:#fff0b4}.chip.social{background:#daf2e3}.chip.world{background:#fde0e0}.route-dot{width:9px;height:9px;border-radius:50%;margin:10px auto 5px}.language.route-dot{background:var(--language)}.logic.route-dot{background:var(--logic)}.social.route-dot{background:var(--social)}.world.route-dot{background:var(--world)}.expert-name{font-size:.58rem;letter-spacing:.025em}.route-note{margin-top:18px;padding:12px 14px;background:#fafafa;border-radius:8px;font-size:.78rem;line-height:1.5;color:#343434}.route-note strong.language{color:#3b72bd}.route-note strong.logic{color:#b18700}.route-note strong.social{color:#2f8e58}.route-note strong.world{color:#cc5f5f}
+.legend{display:grid;grid-template-columns:repeat(4,1fr);background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;margin-top:18px}.legend-item{padding:18px 22px;min-height:98px}.legend-item+.legend-item{border-left:1px solid var(--line)}.legend-title{display:flex;align-items:center;gap:8px;font-weight:700;font-size:.86rem}.legend-dot{width:12px;height:12px;border-radius:50%}.legend-dot.language{background:var(--language)}.legend-dot.logic{background:var(--logic)}.legend-dot.social{background:var(--social)}.legend-dot.world{background:var(--world)}.legend-item p{font-size:.74rem;margin:7px 0 0;color:#333;line-height:1.45}
+footer{text-align:center;color:#555;font-size:.76rem;padding:24px 0 4px}.small{font-size:.72rem}
+@media(max-width:820px){.paper-card{grid-template-columns:1fr}.navlinks{gap:16px}.legend{grid-template-columns:1fr 1fr}.legend-item:nth-child(3){border-left:0}.legend-item:nth-child(n+3){border-top:1px solid var(--line)}}
+@media(max-width:600px){.shell{width:min(100% - 28px,1180px)}nav{height:auto;padding:18px 0;align-items:flex-start}.navlinks{font-size:.77rem;flex-wrap:wrap;justify-content:flex-end}.navlinks a:first-child:after{display:none}.paper-card{padding:16px}.tokens{gap:13px 14px}.legend{grid-template-columns:1fr}.legend-item+.legend-item{border-left:0;border-top:1px solid var(--line)}}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <nav>
-    <div class="brand">MiCRo</div>
-    <div class="navlinks">
-      <a href="#sample">Samples</a>
-      <a href="#about">About</a>
-      <a href="https://arxiv.org/abs/2506.13331" target="_blank" rel="noopener">Paper ↗</a>
-      <a class="repo" href="https://github.com/ruth1445/microrep" target="_blank" rel="noopener">GitHub ↗</a>
+<div class="shell">
+<nav>
+  <div class="brand"><b>MiCRo</b><span>Mixture of Cognitive Reasoners</span></div>
+  <div class="navlinks">
+    <a href="#home">Home</a><a href="#architecture">Architecture</a><a href="#samples">Sample Routing</a><a href="#about">About</a><a href="https://github.com/ruth1445/microrep" target="_blank" rel="noopener">Code ↗</a><a class="gh" href="https://github.com/ruth1445/microrep" target="_blank" rel="noopener">◉</a>
+  </div>
+</nav>
+<main id="home">
+  <section class="hero">
+    <h1>MiCRo: Mixture of Cognitive Reasoners</h1>
+    <p>Clean-room replication of MiCRo, a modular reasoning architecture that routes token representations to specialized cognitive experts.</p>
+  </section>
+
+  <section class="paper-card" id="architecture">
+    <div>
+      <div class="eyebrow">ORIGINAL PAPER DIAGRAM</div>
+      <img src="https://arxiv.org/html/2506.13331v3/cognitive-reasoners-iclr-overview.drawio.png" alt="Original MiCRo brain-inspired modular architecture diagram">
     </div>
-  </nav>
-
-  <main>
-    <header>
-      <h1>MiCRo: Mixture of Cognitive Reasoners</h1>
-      <p class="sub">A clean-room replication of a modular language-model architecture inspired by specialized cognitive networks in the human brain.</p>
-    </header>
-
-    <section class="figure-card" aria-label="Original MiCRo paper diagram">
-      <div class="figure-frame">
-        <img src="https://arxiv.org/html/2506.13331v3/cognitive-reasoners-iclr-overview.drawio.png" alt="Figure 1 from the MiCRo paper showing the brain-inspired modular language-model architecture">
-      </div>
-    </section>
-
     <div class="credit">
-      <span>↳</span>
-      <div><strong>Diagram credit:</strong> Figure 1, “Brain-Inspired Modular Language Model,” from AlKhamissi, De Sabbata, Tuckute, Chen, Schrimpf &amp; Bosselut, <em>Mixture of Cognitive Reasoners: Modular Reasoning with Brain-Like Specialization</em>, arXiv:2506.13331. <a href="https://arxiv.org/abs/2506.13331" target="_blank" rel="noopener">Original paper ↗</a></div>
+      <strong>Diagram credit:</strong>
+      AlKhamissi, H., De Sabbata, S., Tuckute, G., Chen, K., Schrimpf, M., &amp; Bosselut, A. (2025).<br>
+      <em>Mixture of Cognitive Reasoners: Modular Reasoning with Brain-Like Specialization.</em>
+      <em>arXiv: 2506.13331</em>
+    </div>
+  </section>
+
+  <section id="samples">
+    <div class="section-head"><h2>Token Routing Examples</h2><p>Tokens are routed by the MiCRo Router to one of four expert modules.</p></div>
+
+    <div class="example">
+      <div class="example-title"><span class="num">1</span><span class="sentence">“Lily said she was fine after the test, but her tone suggested otherwise.”</span></div>
+      <div class="tokens">
+        <div class="tok"><span class="chip language">Lily</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip language">said</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip language">she</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip language">was</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip social">fine</span><div class="route-dot social"></div><div class="expert-name">SOCIAL</div></div>
+        <div class="tok"><span class="chip language">after</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip language">the</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip logic">test</span><div class="route-dot logic"></div><div class="expert-name">LOGIC</div></div>
+        <div class="tok"><span class="chip language">but</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip language">her</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip social">tone</span><div class="route-dot social"></div><div class="expert-name">SOCIAL</div></div>
+        <div class="tok"><span class="chip language">suggested</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip world">otherwise</span><div class="route-dot world"></div><div class="expert-name">WORLD</div></div>
+      </div>
+      <div class="route-note">Repository-supported routes: <strong class="social">fine → Social</strong>, <strong class="logic">test → Logic</strong>, <strong class="social">tone → Social</strong>, <strong class="language">suggested → Language</strong>, <strong class="world">otherwise → World</strong>. Other tokens are illustrative.</div>
     </div>
 
-    <section class="sample" id="sample">
-      <div class="label">My routing samples</div>
-      <div class="sample-copy">
-        <div class="example">
-          <p class="example-kicker">Example 01 · repository sample</p>
-          <p class="prompt">
-            “<span class="word language">Lily</span> <span class="word language">said</span> <span class="word social">she</span> <span class="word language">was</span> <span class="word social">fine</span> <span class="word language">after</span> <span class="word language">the</span> <span class="word logic">test,</span> <span class="word language">but</span> <span class="word social">her</span> <span class="word social">tone</span> <span class="word language">suggested</span> <span class="word world">otherwise.</span>”
-          </p>
-          <p class="sample-note">The repository explicitly documents the routes for <strong>fine → Social</strong>, <strong>test → Logic</strong>, <strong>tone → Social</strong>, <strong>suggested → Language</strong>, and <strong>otherwise → World</strong>. The remaining word colors complete the sentence-level visualization and are illustrative.</p>
-        </div>
-
-        <div class="example">
-          <p class="example-kicker">Example 02 · portfolio illustration</p>
-          <p class="prompt">
-            “<span class="word social">We</span> <span class="word social">felt</span> <span class="word social">defeated</span> <span class="word language">after</span> <span class="word logic">trying</span> <span class="word logic">so</span> <span class="word logic">hard</span> <span class="word language">to</span> <span class="word world">get</span> <span class="word world">tickets</span> <span class="word language">to</span> <span class="word world">the</span> <span class="word world">game</span> <span class="word language">and</span> <span class="word logic">failing</span> <span class="word language">to</span> <span class="word world">do</span> <span class="word world">so.</span>”
-          </p>
-          <p class="sample-note">This second sentence is an illustrative routing example for the portfolio visualization rather than a saved measured router output from the repository.</p>
-        </div>
-
-        <div class="legend" aria-label="Expert color legend">
-          <div class="legend-item"><span class="dot language"></span>Language</div>
-          <div class="legend-item"><span class="dot logic"></span>Logic</div>
-          <div class="legend-item"><span class="dot social"></span>Social</div>
-          <div class="legend-item"><span class="dot world"></span>World</div>
-        </div>
+    <div class="example">
+      <div class="example-title"><span class="num">2</span><span class="sentence">“We felt defeated after trying so hard to get tickets to the game and failing to do so.”</span></div>
+      <div class="tokens">
+        <div class="tok"><span class="chip language">We</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip social">felt</span><div class="route-dot social"></div><div class="expert-name">SOCIAL</div></div>
+        <div class="tok"><span class="chip social">defeated</span><div class="route-dot social"></div><div class="expert-name">SOCIAL</div></div>
+        <div class="tok"><span class="chip language">after</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip logic">trying</span><div class="route-dot logic"></div><div class="expert-name">LOGIC</div></div>
+        <div class="tok"><span class="chip language">so</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip social">hard</span><div class="route-dot social"></div><div class="expert-name">SOCIAL</div></div>
+        <div class="tok"><span class="chip language">to</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip logic">get</span><div class="route-dot logic"></div><div class="expert-name">LOGIC</div></div>
+        <div class="tok"><span class="chip logic">tickets</span><div class="route-dot logic"></div><div class="expert-name">LOGIC</div></div>
+        <div class="tok"><span class="chip language">to</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip language">the</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip world">game</span><div class="route-dot world"></div><div class="expert-name">WORLD</div></div>
+        <div class="tok"><span class="chip language">and</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip world">failing</span><div class="route-dot world"></div><div class="expert-name">WORLD</div></div>
+        <div class="tok"><span class="chip language">to</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
+        <div class="tok"><span class="chip logic">do</span><div class="route-dot logic"></div><div class="expert-name">LOGIC</div></div>
+        <div class="tok"><span class="chip language">so</span><div class="route-dot language"></div><div class="expert-name">LANGUAGE</div></div>
       </div>
-    </section>
+      <div class="route-note">This second sentence is an illustrative portfolio example rather than saved measured router output.</div>
+    </div>
 
-    <section class="about" id="about">
-      <div class="label">My replication</div>
-      <p>This repository recreates the core idea with four expert modules corresponding to Language, Logic, Social, and World reasoning, plus a router that assigns token representations to an expert. The implementation includes expert training, a MiCRo layer, a T5-style transformer integration, and routing-visualization code.</p>
-    </section>
-  </main>
+    <div class="legend">
+      <div class="legend-item"><div class="legend-title"><span class="legend-dot language"></span>LANGUAGE</div><p>Syntax, semantics, grammar, and linguistic structure.</p></div>
+      <div class="legend-item"><div class="legend-title"><span class="legend-dot logic"></span>LOGIC</div><p>Reasoning, math, rules, and symbolic relations.</p></div>
+      <div class="legend-item"><div class="legend-title"><span class="legend-dot social"></span>SOCIAL</div><p>People, emotions, intentions, and social understanding.</p></div>
+      <div class="legend-item"><div class="legend-title"><span class="legend-dot world"></span>WORLD</div><p>Knowledge about the physical world and events.</p></div>
+    </div>
+  </section>
 
-  <footer>Independent clean-room replication for research and educational purposes.</footer>
+  <section id="about" class="small" style="margin-top:24px;color:#555;text-align:center">Clean-room replication for research and educational purposes. Not affiliated with the original authors.</section>
+</main>
+<footer>MiCRo replication · ruth1445/microrep</footer>
 </div>
 </body>
 </html>
