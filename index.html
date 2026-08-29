@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MiCRo · Mixture of Cognitive Reasoners</title>
 <style>
-  :root{--paper:#f7f4ed;--ink:#171717;--muted:#74716a;--line:#d9d5cd;--card:#fbfaf6}
+  :root{--paper:#f7f4ed;--ink:#171717;--muted:#74716a;--line:#d9d5cd;--card:#fbfaf6;--language:#4776d9;--logic:#4d9a6a;--social:#b45aa7;--world:#d5a23c}
   *{box-sizing:border-box}
   body{margin:0;background:var(--paper);color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}
   a{color:inherit;text-decoration:none}
@@ -28,14 +28,22 @@
   .label{text-transform:uppercase;letter-spacing:.12em;font-size:.66rem;color:var(--muted);padding-top:4px}
   .about p{margin:0;color:#3d3b36;font-size:.95rem}
   .sample-copy{min-width:0}
-  .prompt{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.35;margin:0 0 24px;letter-spacing:-.015em}
-  .routes{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:10px}
-  .route{border-top:1px solid var(--ink);padding-top:10px}
-  .token{font-weight:600;font-size:.95rem;margin-bottom:2px}
-  .expert{color:var(--muted);font-size:.78rem}
-  .sample-note{margin:20px 0 0;color:var(--muted);font-size:.78rem;max-width:620px}
+  .example+.example{margin-top:34px;padding-top:30px;border-top:1px solid var(--line)}
+  .example-kicker{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 12px}
+  .prompt{font-family:Georgia,"Times New Roman",serif;font-size:clamp(1.35rem,2.7vw,2rem);line-height:1.55;margin:0 0 18px;letter-spacing:-.015em}
+  .word{display:inline-block;padding:0 .08em .04em;border-bottom:5px solid transparent;margin-right:.08em;transition:transform .15s ease}
+  .word:hover{transform:translateY(-2px)}
+  .language{border-color:var(--language)}
+  .logic{border-color:var(--logic)}
+  .social{border-color:var(--social)}
+  .world{border-color:var(--world)}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px;font-size:.73rem;color:var(--muted)}
+  .legend-item{display:flex;align-items:center;gap:6px}
+  .dot{width:9px;height:9px;border-radius:50%}
+  .dot.language{background:var(--language)}.dot.logic{background:var(--logic)}.dot.social{background:var(--social)}.dot.world{background:var(--world)}
+  .sample-note{margin:16px 0 0;color:var(--muted);font-size:.78rem;max-width:660px}
   footer{border-top:1px solid var(--line);padding:22px 0 38px;color:var(--muted);font-size:.72rem;text-align:center}
-  @media(max-width:700px){.wrap{width:min(100% - 28px,1180px)}nav{height:auto;padding:20px 0;align-items:flex-start}.navlinks{gap:14px;flex-wrap:wrap;justify-content:flex-end}main{padding-top:42px}.figure-frame{padding:8px}.about,.sample{grid-template-columns:1fr;gap:8px}.routes{grid-template-columns:1fr 1fr}.sample{margin-top:38px}}
+  @media(max-width:700px){.wrap{width:min(100% - 28px,1180px)}nav{height:auto;padding:20px 0;align-items:flex-start}.navlinks{gap:14px;flex-wrap:wrap;justify-content:flex-end}main{padding-top:42px}.figure-frame{padding:8px}.about,.sample{grid-template-columns:1fr;gap:8px}.sample{margin-top:38px}}
 </style>
 </head>
 <body>
@@ -43,7 +51,7 @@
   <nav>
     <div class="brand">MiCRo</div>
     <div class="navlinks">
-      <a href="#sample">Sample</a>
+      <a href="#sample">Samples</a>
       <a href="#about">About</a>
       <a href="https://arxiv.org/abs/2506.13331" target="_blank" rel="noopener">Paper ↗</a>
       <a class="repo" href="https://github.com/ruth1445/microrep" target="_blank" rel="noopener">GitHub ↗</a>
@@ -68,17 +76,30 @@
     </div>
 
     <section class="sample" id="sample">
-      <div class="label">My routing sample</div>
+      <div class="label">My routing samples</div>
       <div class="sample-copy">
-        <p class="prompt">“Lily said she was fine after the test, but her tone suggested otherwise.”</p>
-        <div class="routes" aria-label="Sample token-to-expert assignments from the replication README">
-          <div class="route"><div class="token">fine</div><div class="expert">→ Social</div></div>
-          <div class="route"><div class="token">test</div><div class="expert">→ Logic</div></div>
-          <div class="route"><div class="token">tone</div><div class="expert">→ Social</div></div>
-          <div class="route"><div class="token">suggested</div><div class="expert">→ Language</div></div>
-          <div class="route"><div class="token">otherwise</div><div class="expert">→ World</div></div>
+        <div class="example">
+          <p class="example-kicker">Example 01 · repository sample</p>
+          <p class="prompt">
+            “<span class="word language">Lily</span> <span class="word language">said</span> <span class="word social">she</span> <span class="word language">was</span> <span class="word social">fine</span> <span class="word language">after</span> <span class="word language">the</span> <span class="word logic">test,</span> <span class="word language">but</span> <span class="word social">her</span> <span class="word social">tone</span> <span class="word language">suggested</span> <span class="word world">otherwise.</span>”
+          </p>
+          <p class="sample-note">The repository explicitly documents the routes for <strong>fine → Social</strong>, <strong>test → Logic</strong>, <strong>tone → Social</strong>, <strong>suggested → Language</strong>, and <strong>otherwise → World</strong>. The remaining word colors complete the sentence-level visualization and are illustrative.</p>
         </div>
-        <p class="sample-note">This is the token-routing example documented in my replication repository, showing how different parts of one sentence are assigned to specialized cognitive experts.</p>
+
+        <div class="example">
+          <p class="example-kicker">Example 02 · portfolio illustration</p>
+          <p class="prompt">
+            “<span class="word social">We</span> <span class="word social">felt</span> <span class="word social">defeated</span> <span class="word language">after</span> <span class="word logic">trying</span> <span class="word logic">so</span> <span class="word logic">hard</span> <span class="word language">to</span> <span class="word world">get</span> <span class="word world">tickets</span> <span class="word language">to</span> <span class="word world">the</span> <span class="word world">game</span> <span class="word language">and</span> <span class="word logic">failing</span> <span class="word language">to</span> <span class="word world">do</span> <span class="word world">so.</span>”
+          </p>
+          <p class="sample-note">This second sentence is an illustrative routing example for the portfolio visualization rather than a saved measured router output from the repository.</p>
+        </div>
+
+        <div class="legend" aria-label="Expert color legend">
+          <div class="legend-item"><span class="dot language"></span>Language</div>
+          <div class="legend-item"><span class="dot logic"></span>Logic</div>
+          <div class="legend-item"><span class="dot social"></span>Social</div>
+          <div class="legend-item"><span class="dot world"></span>World</div>
+        </div>
       </div>
     </section>
 
